@@ -33,7 +33,7 @@ slowerButton.addEventListener("click",function(){
 	videoSpeed = videoSpeed * 0.9;
 	videoSpeed = videoSpeed.toFixed(1);
 	video.playbackRate = videoSpeed;
-	console.log("The video speed is " + videoSpeed + "%.");
+	console.log("The video speed is " + videoSpeed + "%");
 });
 
 //Faster Button
@@ -42,7 +42,7 @@ fasterButton.addEventListener("click", function(){
 	videoSpeed = videoSpeed * 1.1;
 	videoSpeed = videoSpeed.toFixed(1);
 	video.playbackRate = videoSpeed;
-	console.log("The video speed is " + videoSpeed + "%.");
+	console.log("The video speed is " + videoSpeed + "%");
 });
 
 //Skip Button
@@ -62,15 +62,17 @@ skipButton.addEventListener("click",function(){
 
 //Mute Button
 var muteButton = document.getElementById("mute");
+var videoMute = document.getElementById("muteText");
 var muteState = false;
+
 muteButton.addEventListener("click", function () {
-    if (muteState == false) {
-        muteState = true;
+    muteState = !muteState;
+
+    if (muteState) {
         video.muted = true;
         videoMute.innerHTML = "Unmute";
         console.log("The video is muted.");
     } else {
-        muteState = false;
         video.muted = false;
         videoMute.innerHTML = "Mute";
         console.log("The video is unmuted.");
