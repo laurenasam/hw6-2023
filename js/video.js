@@ -85,12 +85,13 @@ muteButton.addEventListener("click", function () {
 //Volume Slider
 var displayVolume = document.getElementById("volume");
 var sliderVolume = document.getElementById("slider");
-sliderVolume.addEventListener("input", function(){
-	currentVolume = document.getElementById("slider").value;
-	volume = currentVolume/100;
-	displayVolume.innerHTML = volume * 100 + "%";
-	document.getElementById("volume").innerHTML = volumeCurrent + "%";
-	console.log("The volume is " + volume * 100 + "%");
+
+sliderVolume.addEventListener("input", function () {
+    var currentVolume = sliderVolume.value;
+    var volume = currentVolume / 100;
+
+    displayVolume.innerHTML = currentVolume + "%";
+    console.log("The volume is " + currentVolume + "%");
 });
 
 
