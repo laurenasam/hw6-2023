@@ -11,12 +11,14 @@ var currentVolume = 100;
 
 //Play Button
 var playButton = document.getElementById("play");
-playButton.addEventListener("click",function(){
-	video.play();
-	volumeDisplay.innerHTML = currentVolume + "%";
-	console.log("Play Video");
-	console.log("The volume is "+ currentVolume +"%.")
-	});
+playButton.addEventListener("click", function () {
+    video.play();
+    var currentVolume = Math.round(video.volume * 100);
+    volumeDisplay.innerHTML = currentVolume + '%';
+
+    console.log("Play Video");
+    console.log("The volume is " + currentVolume + '%');
+});
 
 
 //Pause Button
