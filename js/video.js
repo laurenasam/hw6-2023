@@ -81,25 +81,14 @@ muteButton.addEventListener("click", function () {
 });
 
 //Volume Slider
-var volumeSlider = document.getElementById("slider");
-var volumeText = document.getElementById("volume");
-var videoElement = document.getElementById('player1');
-var storedVolume;
-
-volumeSlider.addEventListener("input", function () {
-    var volumeValue = volumeSlider.value;
-    volumeText.innerHTML = volumeValue + "%";
-    videoElement.volume = volumeValue / 100;
-});
-
-videoElement.addEventListener("pause", function () {
-    storedVolume = videoElement.volume * 100;
-});
-
-videoElement.addEventListener("play", function () {
-    if (typeof storedVolume !== 'undefined') {
-        videoElement.volume = storedVolume / 100;
-    }
+var displayVolume = document.getElementById("volume");
+var sliderVolume = document.getElementById("slider");
+sliderVolume.addEventListener("input", function(){
+	currentVolume = document.getElementById("slider").value;
+	volume = currentVolume/100;
+	displayVolume.innerHTML = volume * 100 + "%";
+	document.getElementById("volume").innerHTML = volumeCurrent + "%";
+	console.log("The volume is " + volume * 100 + "%");
 });
 
 
@@ -107,13 +96,13 @@ videoElement.addEventListener("play", function () {
 var oldSchoolButton = document.getElementById("vintage");
 oldSchoolButton.addEventListener("click", function(){
 	video.classList.add("oldSchool");
-	console.log("The video style is old school")
+	console.log("The video style is old school.")
 })
 
 //Original Button
 var originalButton = document.getElementById("orig");
 originalButton.addEventListener("click", function(){
 	video.classList.remove("oldSchool");
-	console.log("The video style is original")
+	console.log("The video style is original.")
 })
 }
