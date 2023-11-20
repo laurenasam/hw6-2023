@@ -85,12 +85,18 @@ muteButton.addEventListener("click", function () {
 //Volume Slider
 var displayVolume = document.getElementById("volume");
 var sliderVolume = document.getElementById("slider");
+var videoElement = document.getElementById("player1");
 
 sliderVolume.addEventListener("input", function () {
     var currentVolume = sliderVolume.value;
     var volume = currentVolume / 100;
 
     displayVolume.innerHTML = currentVolume + "%";
+
+    videoElement.volume = volume;
+
+    videoElement.muted = (volume === 0);
+
     console.log("The volume is " + currentVolume + "%");
 });
 
